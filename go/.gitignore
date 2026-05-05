@@ -1,0 +1,18 @@
+# compiled binaries
+main
+*.test
+*.out
+coverage.out
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# capstone build artifacts
+17-capstone/kubetail
+17-capstone/bin/
+
+# don't commit your local notes
+NOTES.md

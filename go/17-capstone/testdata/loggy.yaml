@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loggy
+  labels:
+    app: loggy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loggy
+  template:
+    metadata:
+      labels:
+        app: loggy
+    spec:
+      containers:
+        - name: emitter
+          image: busybox:1.36
+          command:
+            - /bin/sh
+            - -c
+            - |
+              i=0
+              while true; do
+                echo "$(date -Iseconds) loggy[$HOSTNAME] tick=$i"
+                i=$((i+1))
+                sleep 1
+              done
